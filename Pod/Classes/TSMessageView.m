@@ -250,14 +250,15 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
         }
         
         // Set up button (if set)
-        if ([buttonTitle length])
+        if (buttonTitle)
         {
             _button = [UIButton buttonWithType:UIButtonTypeCustom];
             
             
             UIImage *buttonBackgroundImage = [UIImage imageNamed:[current valueForKey:@"buttonBackgroundImageName"]];
             
-            buttonBackgroundImage = [buttonBackgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(15.0, 12.0, 15.0, 11.0)];
+            if (buttonTitle.length)
+                buttonBackgroundImage = [buttonBackgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(15.0, 12.0, 15.0, 11.0)];
             
             if (!buttonBackgroundImage)
             {
@@ -266,7 +267,8 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             }
             
             [self.button setBackgroundImage:buttonBackgroundImage forState:UIControlStateNormal];
-            [self.button setTitle:self.buttonTitle forState:UIControlStateNormal];
+            if (buttonTitle.length)
+                [self.button setTitle:self.buttonTitle forState:UIControlStateNormal];
             
             UIColor *buttonTitleShadowColor = [UIColor colorWithHexString:[current valueForKey:@"buttonTitleShadowColor"] alpha:1.0];
             if (!buttonTitleShadowColor)
@@ -290,12 +292,12 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
                             action:@selector(buttonTapped:)
                   forControlEvents:UIControlEventTouchUpInside];
             
-            self.button.contentEdgeInsets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
+//            self.button.contentEdgeInsets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
             [self.button sizeToFit];
             self.button.frame = CGRectMake(screenWidth - padding - self.button.frame.size.width,
                                            0.0,
                                            self.button.frame.size.width,
-                                           31.0);
+                                           self.button.frame.size.height);
             
             [self addSubview:self.button];
             
