@@ -338,7 +338,7 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
             _button = [UIButton buttonWithType:UIButtonTypeCustom];
             
             
-            UIImage *buttonBackgroundImage = [self bundledImageNamed:[current valueForKey:@"buttonBackgroundImageName"]];
+            UIImage *buttonBackgroundImage = [UIImage imageNamed:[current valueForKey:@"buttonBackgroundImageName"]];
             
             if (buttonTitle.length)
                 buttonBackgroundImage = [buttonBackgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(15.0, 12.0, 15.0, 11.0)];
