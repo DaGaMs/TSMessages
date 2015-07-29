@@ -41,7 +41,6 @@ static NSMutableDictionary *_notificationDesign;
 
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIImageView *iconImageView;
-@property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIView *borderView;
 @property (nonatomic, strong) UIImageView *backgroundImageView;
 @property (nonatomic, strong) TSBlurView *backgroundBlurView; // Only used in iOS 7
